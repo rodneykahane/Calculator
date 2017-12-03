@@ -11,10 +11,10 @@
 @interface Calculator:NSObject
 -(double *) accumulator:(int) sel;
 -(void) clear:(int) c;
--(void) addition:(double) a;
--(void) subtraction:(double) s;
--(void) multiplication:(double) m;
--(void) division:(double) d;
+-(void) addition:(double *) a;
+-(void) subtraction:(double *) s;
+-(void) multiplication:(double *) m;
+-(void) division:(double *) d;
 -(void) menu;
 @end
 
@@ -29,6 +29,9 @@
 -(double *) accumulator:(int) sel; {
     
     double a,b;
+    Calculator *mehCalc;
+    mehCalc = [Calculator alloc];
+    mehCalc = [mehCalc init];
     
     
     NSLog(@"enter a number:");
@@ -39,6 +42,16 @@
     retArr[0]=a;
     retArr[1]=b;
     
+    if(sel == 1) {
+        [mehCalc addition:retArr];
+    } else if (sel ==2) {
+        [mehCalc subtraction:retArr];
+    } else if (sel ==3) {
+        [mehCalc multiplication:retArr];
+    } else if (sel ==4) {
+        [mehCalc division:retArr];
+    }
+    
     return(retArr);
     
 }//end accumulator
@@ -48,17 +61,38 @@
     
     
 }//end clear
--(void) addition:(double) a; {
+-(void) addition:(double *) a; {
+    
+    double resultAdd;
+    
+    //NSLog(@"we're in addition, retArr[0] is %lf and retArr[1] is %lf",a[0],a[1]);
+    resultAdd = a[0]+a[1];
+    NSLog(@"%lf + %lf is %lf",a[0],a[1],resultAdd);
     
 }//end addition
--(void) subtraction:(double) s; {
+-(void) subtraction:(double *) s; {
     
+    double resultSub;
+    
+   // NSLog(@"we're in sub, retArr[0] is %lf and retArr[1] is %lf",s[0],s[1]);
+    resultSub = s[0]-s[1];
+    NSLog(@"%lf + %lf is %lf",s[0],s[1],resultSub);
 }//end subtraction
--(void) multiplication:(double) m; {
+-(void) multiplication:(double *) m; {
     
+    double resultMul;
+    
+   // NSLog(@"we're in mult, retArr[0] is %lf and retArr[1] is %lf",m[0],m[1]);
+    resultMul = m[0]*m[1];
+    NSLog(@"%lf + %lf is %lf",m[0],m[1],resultMul);
 }//end multiplication
--(void) division:(double) d; {
+-(void) division:(double *) d; {
     
+    double resultDiv;
+    
+   // NSLog(@"we're in div, retArr[0] is %lf and retArr[1] is %lf",d[0],d[1]);
+    resultDiv = d[0]/d[1];
+    NSLog(@"%lf + %lf is %lf",d[0],d[1],resultDiv);
 }//end division
 
 -(void) menu {
@@ -69,14 +103,19 @@
     blahCalc = [blahCalc init];
     
     while(cont !=9){
-        NSLog(@"press 1 for addition");
+        NSLog(@"press 1 for addition, press 2 for sub, press 3 for mult, press 4 for div");
         NSLog(@"press 9 for exit");
         scanf("%i",&cont);
         if(cont ==1){
-            [blahCalc accumlator:cont];
-            
+            [blahCalc accumulator:cont];
+        } else if (cont == 2) {
+            [blahCalc accumulator:cont];
+        } else if (cont == 3 ) {
+            [blahCalc accumulator:cont];
+        } else if ( cont == 4) {
+            [blahCalc accumulator:cont];
         }
-    }
+    }//end while
 
     exit(0);
     
@@ -91,7 +130,6 @@
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
         
-        //int meh=0;
         
         //setting up calculator class
         Calculator *myCalc;
