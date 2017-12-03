@@ -76,7 +76,7 @@
     
    // NSLog(@"we're in sub, retArr[0] is %lf and retArr[1] is %lf",s[0],s[1]);
     resultSub = s[0]-s[1];
-    NSLog(@"%lf + %lf is %lf",s[0],s[1],resultSub);
+    NSLog(@"%lf - %lf is %lf",s[0],s[1],resultSub);
 }//end subtraction
 -(void) multiplication:(double *) m; {
     
@@ -84,7 +84,7 @@
     
    // NSLog(@"we're in mult, retArr[0] is %lf and retArr[1] is %lf",m[0],m[1]);
     resultMul = m[0]*m[1];
-    NSLog(@"%lf + %lf is %lf",m[0],m[1],resultMul);
+    NSLog(@"%lf * %lf is %lf",m[0],m[1],resultMul);
 }//end multiplication
 -(void) division:(double *) d; {
     
@@ -92,7 +92,7 @@
     
    // NSLog(@"we're in div, retArr[0] is %lf and retArr[1] is %lf",d[0],d[1]);
     resultDiv = d[0]/d[1];
-    NSLog(@"%lf + %lf is %lf",d[0],d[1],resultDiv);
+    NSLog(@"%lf / %lf is %lf",d[0],d[1],resultDiv);
 }//end division
 
 -(void) menu {
